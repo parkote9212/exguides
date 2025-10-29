@@ -40,7 +40,7 @@ public class StudentService {
     }
 
 //    READ ALL (전체 조회)
-    public List<Student> getAlllStudents(){
+    public List<Student> getAllStudents(){
         return studentMapper.findAll();
     }
 

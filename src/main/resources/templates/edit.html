@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>학생 정보 수정</title>
+    <style> .error { color: red; } </style>
+</head>
+<body>
+<h1>학생 정보 수정</h1>
+<form th:action="@{/students/{id}(id=${student.id})}" th:object="${student}" method="POST">
+    <div>
+        <label for="name">이름:</label>
+        <input type="text" th:field="*{name}" />
+        <div class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+    </div>
+    <div>
+        <label for="email">이메일:</label>
+        <input type="email" th:field="*{email}" />
+        <div class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+    </div>
+    <div>
+        <label for="age">나이:</label>
+        <input type="number" th:field="*{age}" />
+        <div class="error" th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></div>
+    </div>
+    <button type="submit">수정</button>
+    <a th:href="@{/students}">취소</a>
+</form>
+</body>
+</html>
